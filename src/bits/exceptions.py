@@ -1,0 +1,1 @@
+class BitError(Exception): pass
