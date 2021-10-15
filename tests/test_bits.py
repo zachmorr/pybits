@@ -1,5 +1,7 @@
+from bits.bits import Bits
 from bits.exceptions import BitError
 import pytest
+import operator
 import bits
 
 def test_sign_bit():
@@ -59,20 +61,17 @@ def test_bits_initialization():
 def b():
     return bits.Bits(15)
 
-def test_bits_comparison(b):
-    assert (b <= 2) == False
-    assert (b <  2) == False
-    assert (b == 2) == False
-    assert (b != 2) == True
-    assert (b >= 2) == True
-    assert (b >  2) == True
+def test_operators(b):
+    ops = [ operator.add, operator.sub, operator.mul, operator.truediv,
+            operator.floordiv, operator.mod, operator.pow, operator.rshift,
+            operator.lshift, operator.or_, operator.and_, operator.xor,
+            operator.lt, operator.le, operator.eq, operator.ne, operator.gt, operator.ge ]
 
-def test_bits_add(b):
-    b2 = b + 1
-    assert b2.value == 16
-    assert b2.nbits == 5
+    num = bits.Bits(15)
+    for op in ops:
+        a = op(num, 5)
+        b = op(num.value, 5)
+        assert type(a) == int
+        assert a == b
 
-def test_bits_sub(b):
-    b2 = b - 1
-    assert b2.value == 14
-    assert b2.nbits == 4
+

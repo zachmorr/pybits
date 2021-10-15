@@ -212,3 +212,20 @@ def sint(val: int, nbytes: int = None, nbits: int = None) -> int:
     _logger.debug(f'sint({val}, {nbits}): {val}')
     return val
 
+def get_bits(val: int, bit: int, end: int = None, length: int = None):
+    if length != None and end != None:
+        if length != end-bit:
+            raise BitError(f"Incompatible length {length} and end {end}")
+        num_bits = length
+    elif length != None:
+        num_bits = length
+    elif end != None:
+        num_bits = end - bit
+    else:
+        num_bits = 1
+
+    mask = (1 << num_bits) - 1
+    ret = (val >> bit) & mask
+
+    _logger.debug(f'sint({val}, {bit}, {end}, {length}): {ret}')
+    return ret

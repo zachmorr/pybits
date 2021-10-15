@@ -103,139 +103,161 @@ class Bits():
 
     """ Math Operations """
     def __add__(self, other):
-        return Bits(self.value + other)
+        return self.value + other
     
     def __sub__(self, other):
-        return Bits(self.value - other)
+        return self.value - other
     
     def __mul__(self, other):
-        return Bits(self.value * other)
+        return self.value * other
 
     def __matmul__(self, other):
         raise NotImplementedError
     
     def __truediv__(self, other):
-        return Bits(self.value / other)
+        return self.value + other
     
     def __floordiv__(self, other):
-        return Bits(self.value // other)
+        return self.value // other
     
     def __mod__(self, other):
-        return Bits(self.value % other)
+        return self.value % other
     
     def __divmod__(self, other):
         raise NotImplementedError
     
     def __pow__(self, other):
-        return Bits(self.value ** other)
+        return self.value ** other
     
     def __lshift__(self, other):
-        return Bits(self.value << other)
+        return self.value << other
     
     def __rshift__(self, other):
-        return Bits(self.value >> other)
+        return self.value >> other
     
     def __and__(self, other):
-        return Bits(self.value & other)
+        return self.value & other
     
     def __xor__(self, other):
-        return Bits(self.value ^ other)
+        return self.value ^ other
     
     def __or__(self, other):
-        return Bits(self.value | other)
-    
+        return self.value | other
+
+
+
     def __radd__(self, other):
-        raise NotImplementedError
+        return self.value + other
     
     def __rsub__(self, other):
-        raise NotImplementedError
+        return self.value - other
     
     def __rmul__(self, other):
-        raise NotImplementedError
+        return self.value * other
 
     def __rmatmul__(self, other):
         raise NotImplementedError
     
     def __rtruediv__(self, other):
-        raise NotImplementedError
+        return self.value / other
     
     def __rfloordiv__(self, other):
-        raise NotImplementedError
+        return self.value // other
     
     def __rmod__(self, other):
-        raise NotImplementedError
+        return self.value % other
     
     def __rdivmod__(self, other):
         raise NotImplementedError
     
     def __rpow__(self, other):
-        raise NotImplementedError
+        return self.value ** other
     
     def __rlshift__(self, other):
-        raise NotImplementedError
+        return self.value << other
     
     def __rrshift__(self, other):
-        raise NotImplementedError
+        return self.value >> other
     
     def __rand__(self, other):
-        raise NotImplementedError
+        return self.value & other
     
     def __rxor__(self, other):
-        raise NotImplementedError
+        return self.value ^ other
     
     def __ror__(self, other):
-        raise NotImplementedError
+        return self.value | other
+
+
     
     def __iadd__(self, other):
-        raise NotImplementedError
+        self.value = self.value + other
+        return self
     
     def __isub__(self, other):
-        raise NotImplementedError
+        self.value = self.value - other
+        return self
     
     def __imul__(self, other):
-        raise NotImplementedError
+        self.value = self.value * other
+        return self
 
     def __imatmul__(self, other):
         raise NotImplementedError
     
     def __itruediv__(self, other):
-        raise NotImplementedError
+        self.value = self.value / other
+        return self
     
     def __ifloordiv__(self, other):
-        raise NotImplementedError
+        self.value = self.value // other
+        return self
     
     def __imod__(self, other):
-        raise NotImplementedError
+        self.value = self.value % other
+        return self
     
     def __ipow__(self, other):
-        raise NotImplementedError
+        self.value = self.value ** other
+        return self
     
     def __ilshift__(self, other):
-        raise NotImplementedError
+        self.value = self.value << other
+        return self
     
     def __irshift__(self, other):
-        raise NotImplementedError
+        self.value = self.value >> other
+        return self
     
     def __iand__(self, other):
-        raise NotImplementedError
+        self.value = self.value & other
+        return self
     
     def __ixor__(self, other):
-        raise NotImplementedError
+        self.value = self.value ^ other
+        return self
     
     def __ior__(self, other):
-        raise NotImplementedError
-    
+        self.value = self.value | other
+        return self
+
+
+
     def __neg__(self):
-        raise NotImplementedError
+        self.value = -self.value
+        return self
     
     def __pos__(self):
-        raise NotImplementedError
+        self.value = +self.value
+        return self
     
     def __abs__(self):
-        raise NotImplementedError
+        self.value = abs(self.value)
+        return self
     
     def __invert__(self):
-        raise NotImplementedError
+        self.value = ~self.value
+        return self
     
     def __index__(self):
         raise NotImplementedError
